@@ -27,6 +27,8 @@ export function currentUserId(req) {
 	const payload = jwt.verify(token, process.env.JWT_SECRET)
 	return payload.sub
   } catch(err) {
+	if (err.name == 'TokenExpiredError')
+		throw new ApiError(401, "TOKEN_EXPIRED", "토큰이 만료되었습니다.");
     throw new ApiError(401, "INVALID_TOKEN", "사용자를 확인할 수 없습니다.");
 	// return null
   }

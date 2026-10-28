@@ -120,7 +120,6 @@ app.listen(Number(process.env.PORT || 8000), "127.0.0.1", (error) => {
   }
   console.log(
     "게시판 시작 코드 http://127.0.0.1:" +
-      (process.env.PORT || 8000) +
-      " — 인증 TODO 미완성",
+      (process.env.PORT || 8000)
   );
 });
